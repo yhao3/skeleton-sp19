@@ -46,7 +46,23 @@ public class LinkedListDeque<T> implements Deque<T> {
 
     @Override
     public void addFirst(T item) {
-        // TODO Auto-generated method stub
+        Node<T> newNode = new Node<>(item);
+        // 插到 sentinel 跟 sentinel.next 兩節點的中間
+        newNode.prev = sentinel; // a. 一樣的拉到外面
+        sentinel.next = newNode; // b. 一樣的拉到外面
+    
+        if (size == 0) { // only sentinel node
+            // newNode.prev = sentinel; // a. 一樣的拉到外面
+            newNode.next = sentinel.next;
+            // sentinel.next = newNode; // b. 一樣的拉到外面
+            newNode.next.prev = newNode;
+        } else {
+            // newNode.prev = sentinel; // a. 一樣的拉到外面
+            newNode.next = sentinel;
+            // sentinel.next = newNode; // b. 一樣的拉到外面
+            sentinel.prev = newNode;
+        }
+        size++;
     }
 
     @Override

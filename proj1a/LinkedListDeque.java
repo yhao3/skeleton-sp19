@@ -67,8 +67,22 @@ public class LinkedListDeque<T> implements Deque<T> {
 
     @Override
     public void addLast(T item) {
-        // TODO Auto-generated method stub
+        Node<T> newNode = new Node<>(item);
+        newNode.next = sentinel; // a. 一樣的拉到外面
+        sentinel.prev = newNode; // b. 一樣的拉到外面
         
+        if (size == 0) { // only sentinel node
+            newNode.prev = sentinel;
+            // newNode.next = sentinel; // a. 一樣的拉到外面
+            sentinel.next = newNode;
+            // sentinel.prev = newNode; // b. 一樣的拉到外面
+        } else {
+            newNode.prev = sentinel.prev;
+            // newNode.next = sentinel; // a. 一樣的拉到外面
+            sentinel.prev.next = newNode;
+            // sentinel.prev = newNode; // b. 一樣的拉到外面
+        }
+        size++;
     }
 
     @Override

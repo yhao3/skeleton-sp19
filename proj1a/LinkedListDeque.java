@@ -53,14 +53,14 @@ public class LinkedListDeque<T> implements Deque<T> {
     
         if (size == 0) { // only sentinel node
             // newNode.prev = sentinel; // a. 一樣的拉到外面
-            newNode.next = sentinel.next;
-            // sentinel.next = newNode; // b. 一樣的拉到外面
-            newNode.next.prev = newNode;
-        } else {
-            // newNode.prev = sentinel; // a. 一樣的拉到外面
             newNode.next = sentinel;
             // sentinel.next = newNode; // b. 一樣的拉到外面
             sentinel.prev = newNode;
+        } else {
+            // newNode.prev = sentinel; // a. 一樣的拉到外面
+            newNode.next = sentinel.next;
+            // sentinel.next = newNode; // b. 一樣的拉到外面
+            newNode.next.prev = newNode;
         }
         size++;
     }

@@ -6,12 +6,12 @@
 public interface Deque<T> {
 
     /**
-     * Adds an item type T to the front of the deque
+     * Adds an item of type T to the front of the deque.
      */
     void addFirst(T item);
 
     /**
-     * Adds an item type T to the back of the deque.
+     * Adds an item of type T to the back of the deque.
      */
     void addLast(T item);
 
@@ -23,7 +23,7 @@ public interface Deque<T> {
     }
 
     /**
-     * Return the number of items in the deque
+     * Returns the number of items in the deque.
      */
     int size();
 
@@ -44,7 +44,7 @@ public interface Deque<T> {
      * and so forth.
      * If no such items exists, return null.
      *
-     * Note: Must not alter the deque
+     * @apiNote Must not alter the deque
      */
     T get(int index);
 
@@ -56,7 +56,7 @@ public interface Deque<T> {
     /**
      * Prints the items in the deque from first to last,
      * separated by a space. Once all items has been printed,
-     * print out a new line
+     * print out a new line.
      */
     void printDeque();
 }

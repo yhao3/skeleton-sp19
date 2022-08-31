@@ -87,8 +87,7 @@ public class LinkedListDeque<T> implements Deque<T> {
 
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        return 0;
+        return this.size;
     }
 
     @Override

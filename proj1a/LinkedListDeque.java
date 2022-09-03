@@ -106,8 +106,16 @@ public class LinkedListDeque<T> implements Deque<T> {
 
     @Override
     public T removeLast() {
-        // TODO Auto-generated method stub
-        return null;
+        if (size == 0) {
+            return null;
+        }
+        Node<T> p = sentinel.prev;
+        sentinel.prev = p.prev;
+        p.prev.next = sentinel;
+        p.prev = null;
+        p.next = null;
+        size--;
+        return p.value;
     }
 
     @Override

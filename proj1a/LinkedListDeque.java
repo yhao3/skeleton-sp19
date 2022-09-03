@@ -120,8 +120,14 @@ public class LinkedListDeque<T> implements Deque<T> {
 
     @Override
     public T get(int index) {
-        // TODO Auto-generated method stub
-        return null;
+        if (index < 0 || index > size - 1) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        Node<T> p = sentinel.next;
+        for (int i = 0; i < index; i++) {
+            p = p.next;
+        }
+        return p.value;
     }
 
     @Override

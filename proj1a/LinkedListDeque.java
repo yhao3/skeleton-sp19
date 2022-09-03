@@ -123,9 +123,17 @@ public class LinkedListDeque<T> implements Deque<T> {
         if (index < 0 || index > size - 1) {
             throw new IndexOutOfBoundsException("Invalid index");
         }
-        Node<T> p = sentinel.next;
-        for (int i = 0; i < index; i++) {
-            p = p.next;
+        Node<T> p = null;
+        if (index < size / 2 ) {
+            p = sentinel.next;
+            for (int i = 0; i < index; i++) {
+                p = p.next;
+            }
+        } else {
+            p = sentinel.prev;
+            for (int i = size - 1; i > index; i--) {
+                p = p.prev;
+            }
         }
         return p.value;
     }
